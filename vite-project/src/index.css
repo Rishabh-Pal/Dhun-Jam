@@ -1,0 +1,127 @@
+:root {
+  font-family: Poppins, Inter, system-ui;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: #ffffff;
+  background-color: #030303;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 1.1;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #6741d9;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #f0c3f1;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 1px solid #f0c3f1;
+}
+
+button:active {
+  border-color: #f0c3f1;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Additional Styles */
+
+/* Radio button */
+input[type="radio"] {
+  background-color: #ffffff;
+}
+
+/* Selected radio button */
+input[type="radio"]:checked {
+  background-color: #6741d9;
+}
+
+/* Text/Input field border */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  border: 1px solid #ffffff;
+  width: 100%;
+}
+
+/* Save button hover and active state */
+button:hover,
+button:active {
+  border-color: #f0c3f1;
+}
+
+/* Graph bars color */
+.graph-bar {
+  background-color: #f0c3f1;
+}
+
+/* Bar axis and markings color */
+.bar-axis {
+  color: #ffffff;
+}
+
+/* Greyed out radio button background */
+input[type="radio"]:disabled {
+  background-color: #c2c2c2;
+}
+
+/* Greyed out text/input field border */
+input[type="text"]:disabled,
+input[type="password"]:disabled,
+input[type="email"]:disabled {
+  border: 1px solid #c2c2c2;
+}
