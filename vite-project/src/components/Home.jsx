@@ -1,5 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import ChargeCustomers from "./ChargeCustomers";
+import CustomAmount from "./CustomAmount";
+import RegularAmounts from "./RegularAmounts";
+import BarGraph from "./BarChart";
 import { useEffect, useState } from "react";
 
 const Dashboard = () => { 
@@ -9,20 +13,7 @@ const Dashboard = () => {
     const [isSaveEnabled, setIsSaveEnabled] = useState(false);
     
     const navigate = useNavigate();
-  const handleCustomAmountChange = (value) => {
-    const amount = parseInt(value, 10) || 0;
-    setCustomAmount(amount);
-    setIsSaveEnabled(amount > 99 && areRegularAmountsValid());
-  };
-
-  const handleRegularAmountChange = (index, value) => {
-    const newRegularAmounts = [...regularAmounts];
-    newRegularAmounts[index] = parseInt(value, 10) || 0;
-    setRegularAmounts(newRegularAmounts);
-    setIsSaveEnabled(
-      customAmount > 99 && areRegularAmountsValid(newRegularAmounts)
-    );
-  };
+   
   const areRegularAmountsValid = (amounts = regularAmounts) => {
     const minValues = [79, 59, 39, 19];
     return amounts.every((amount, index) => amount > minValues[index]);
@@ -105,73 +96,25 @@ const Dashboard = () => {
     <div>
       <h1 className="venue-name">Social, Hebbal on Dhun Jam</h1>
       <div className="settings-container">
-        <div className="setting-item">
-          <div className="text">
-            Do you want to charge your customers for requesting songs?
-          </div>
-          <div className="radio-options">
-            <input
-              type="radio"
-              name="requestCharge"
-              id="yes"
-              checked={chargeCustomers}
-              onChange={() => setChargeCustomers(true)}
-            />
-            <label htmlFor="yes">Yes</label>
-            <input
-              type="radio"
-              name="requestCharge"
-              id="no"
-              checked={!chargeCustomers}
-              onChange={() => setChargeCustomers(false)}
-            />
-            <label htmlFor="no">No</label>
-          </div>
-        </div>
+      <ChargeCustomers
+          chargeCustomers={chargeCustomers}
+          setChargeCustomers={setChargeCustomers}
+        />
         {chargeCustomers && (
           <>
-            <div className="setting-item">
-              <div className="text">Custom song request amount-</div>
-              <div>
-                <input
-                  type="number"
-                  className="custom-number-input"
-                  value={customAmount}
-                  onChange={(e) => handleCustomAmountChange(e.target.value)}
-                />
-              </div>
-            </div>
-            <div className="setting-item">
-              <div className="text">
-                Regular song request amounts from high to low-
-              </div>
-              <div className="regular-amounts">
-                {regularAmounts.map((value, index) => (
-                  <input
-                    key={index}
-                    type="number"
-                    className="custom-number-input"
-                    value={value}
-                    onChange={(e) =>
-                      handleRegularAmountChange(index, e.target.value)
-                    }
-                  />
-                ))}
-              </div>
-            </div>
-            <div className="bar-graph">
-              {regularAmounts.map((value, index) => (
-                <div
-                  key={index}
-                  className="bar"
-                  style={{
-                    height: `${value * 3}px`,
-                    border: "1px solid #333",
-                    margin: "0 4px", 
-                  }}
-                ></div>
-              ))}
-            </div>
+            <CustomAmount
+              customAmount={customAmount}
+              setCustomAmount={setCustomAmount}
+              setIsSaveEnabled={setIsSaveEnabled}
+              areRegularAmountsValid={areRegularAmountsValid}
+            />
+           <RegularAmounts
+           customAmount={customAmount}
+              regularAmounts={regularAmounts}
+              setRegularAmounts={setRegularAmounts}
+              setIsSaveEnabled={setIsSaveEnabled}
+            />
+            <BarGraph regularAmounts={regularAmounts} />
           </> 
         )}
       </div>
