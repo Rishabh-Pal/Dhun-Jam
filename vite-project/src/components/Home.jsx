@@ -167,7 +167,7 @@ const Dashboard = () => {
                   style={{
                     height: `${value * 3}px`,
                     border: "1px solid #333",
-                    margin: "0 4px",
+                    margin: "0 4px", 
                   }}
                 ></div>
               ))}

@@ -99,13 +99,15 @@ button:active {
 
 .bar-graph {
   display: flex;
-  margin-top: 10px;
-  
+  margin-top: 10px; 
+  align-items: flex-start
 }
 
 .bar {
-  width: 20px; /* Adjust the width as needed */
+  width: 40px; /* Adjust the width as needed */
   max-height: 600px;
-  background-color: #6741d9;
+  flex-grow: 1;
+  background-color: #f0c3f1;
   margin-right: 5px;
+  align-self: flex-end
 }
