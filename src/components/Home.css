@@ -99,7 +99,7 @@ button:active {
 
 .bar-graph {
   display: flex;
-  margin-top: 10px; 
+  margin-top: 100px; 
   align-items: flex-start;
   height: 350px
 }

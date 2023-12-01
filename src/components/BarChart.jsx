@@ -1,6 +1,5 @@
 
 import PropTypes from 'prop-types'
-// import "./BarChart.css"
 const BarGraph = ({ allAmounts }) => {
   const maxAmount = Math.max(...allAmounts);
   return (
