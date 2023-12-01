@@ -100,14 +100,27 @@ button:active {
 .bar-graph {
   display: flex;
   margin-top: 10px; 
-  align-items: flex-start
+  align-items: flex-start;
+  height: 350px
 }
 
 .bar {
-  width: 40px; /* Adjust the width as needed */
-  max-height: 600px;
+  width: 40px; 
   flex-grow: 1;
   background-color: #f0c3f1;
   margin-right: 5px;
   align-self: flex-end
 }
+
+.y-axis{
+  border-right: 2px solid #ffffff; 
+  height: 100%;
+  font-size: 40px;
+}
+.x-axis{
+  border-top: 2px solid #ffffff; 
+  width: 100%;
+  display: flex;
+  margin-left: 20px;
+  justify-content: space-between;
+} 
